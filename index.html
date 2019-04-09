@@ -33,9 +33,9 @@
   <div class="container home">
     <header class="intro">
       <img src="img/fun-bus.jpg" alt="bus in the sand" id="firstimage">
-      <div class= "droppable">
-        <div class="dropzone" ondrop="drop1(event)" ondragover="allowDrop(event)"><h2 id="draggable" ondragstart="dragStart(event)" ondrag="dragging(event)" draggable="true">Welcome To Fun Bus!</h2></div>
-        <div class="dropzone" ondrop="drop2(event)" ondragover="allowDrop(event)"></div>
+      <div class= "dropzones">
+        <div class="droptarget"><h2 id="draggable" draggable="true">Welcome To Fun Bus!</h2></div>
+        <div class="droptarget"></div>
       </div>
       <p id="demo"><strong>Want to change the alignment of the intro header? Drag it to another side!</strong></p>
       <p>Traveling expedition modern, clean webdesign blogger clean website theme website modern. Design pretty design, travelblogger adventure WordPress wanderlust theme blogger website expedition theme travelblogger. Adventure fun traveler pretty design website expedition.</p>
@@ -64,7 +64,7 @@
     <section class="content-destination">
       <h2>Pick Your Destination</h2>
       <p>Expedition excursion design darn excursion fun, clean simple organized WordPress Travel colorful webdesign. Traveler blogger website design expedition clean excursion traveling.</p>
-      <img src="img/destination.jpg" alt="Second slide" id="fourthimage">
+      <img src="img/destination.jpg" alt="Second slide" id="destinationImg">
     </section>
     <section class="content-pick">
 
@@ -84,6 +84,13 @@
         <div class="btn">Sign Me Up!</div>
       </div>
     </section>
+    <div class="form">
+      <h4>Subscribe to our Newsletter</h4>
+      <form>
+        <input type="email" id="email">
+        <input type="submit" id="submit">
+      </form>
+  </div>
   </div><!-- container -->
 
   <footer class="footer">

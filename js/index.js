@@ -3,9 +3,14 @@ let mouseOverLink = document.querySelector('.nav');
 mouseOverLink.addEventListener('mouseover', (event) => {
     event.target.classList.add('navSize');
 });
+
 mouseOverLink.addEventListener('mouseout', (event) => {
     event.target.classList.remove('navSize');
 });
+
+mouseOverLink.addEventListener('click', (event) => {
+    event.preventDefault();
+})
 
 let buttonClick = document.querySelectorAll('.btn')[0];
 buttonClick.addEventListener('click', () => {
@@ -30,8 +35,10 @@ buttonClick2.addEventListener('mouseout', () => {
 })
 let keyDownAlert = document.querySelector('body');
 keyDownAlert.addEventListener('keydown', (event) =>{
-    alert('Please be careful with keypresses!')
+    if (event.key == "F12"){
+    alert('No developer tools allowed!')
     event.preventDefault()
+    }
     console.log("No access to developer window through F12!")
 })
 
@@ -49,27 +56,58 @@ inspectAlert.addEventListener('contextmenu', () => {
     console.log("I shouldn't be able to see this honestly.")
 })
 
-function dragStart(event) {
-  event.dataTransfer.setData("Text", event.target.id);
-}
+document.addEventListener('dragstart', (event) => {
+    event.dataTransfer.setData("Text", event.target.id);
+});
 
-function dragging(event) {
-  document.getElementById("demo").innerHTML = "What side will you choose?";
-}
+document.addEventListener('drag', () => {
+    document.getElementById("demo").textContent = "What side will you choose?";
+});
 
-function allowDrop(event) {
-  event.preventDefault();
-}
-
-function drop1(event) {
-  event.preventDefault();
-  let data = event.dataTransfer.getData("Text");
-  event.target.appendChild(document.getElementById(data));
-  document.getElementById("demo").innerHTML = "You chose the left side!";
-}
-function drop2(event) {
+document.addEventListener('dragover', (event) => {
     event.preventDefault();
-    let data = event.dataTransfer.getData("Text");
-    event.target.appendChild(document.getElementById(data));
-    document.getElementById("demo").innerHTML = "You chose the right side!";
-  }
+});
+
+document.addEventListener('drop', (event) => {
+    event.preventDefault();
+    if ( event.target.className == "droptarget" ) {
+        let data = event.dataTransfer.getData("Text");
+        event.target.appendChild(document.getElementById(data));
+        document.getElementById("demo").textContent = "The header element was dropped";
+    }
+});
+
+let body = document.querySelector('body');
+let destinationImg = document.querySelector('#destinationImg');
+
+window.addEventListener('scroll', () => {
+    if(scrollY > 550){
+        destinationImg.classList.add('destinationImgAni');
+    }
+});
+
+let emailForm = document.querySelector('#email');
+
+emailForm.addEventListener('focus', (event) => {
+    event.target.style.backgroundColor = 'red';
+}, true);
+
+emailForm.addEventListener('blur', (event) => {
+    event.target.style.backgroundColor = '';
+}, true);
+
+let submit = document.querySelector('#submit');
+submit.addEventListener('click', (event) => {
+    event.preventDefault();
+});
+
+let destinationContent = document.querySelector('.destination');
+let btn = document.querySelector('.btn');
+
+destinationContent.addEventListener('mouseover', (event) => {
+    event.target.style.color = 'green';
+});
+
+btn.addEventListener('mouseover', (event) => {
+    event.stopPropagation();
+});

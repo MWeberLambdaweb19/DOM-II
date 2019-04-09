@@ -25,16 +25,22 @@
       height: 90%;
       background: white;
     }
-    .droppable {
+    // .droppable {
+    //   display: flex;
+    //   width: 100%;
+    //   justify-content: space-between;
+    // }
+    // .dropzone {
+    //   display: flex;
+    //   padding-bottom: 5px;
+    //   margin: 5px;
+    //   width: 400px;
+    // }
+    .dropzones {
       display: flex;
-      width: 100%;
-      justify-content: space-between;
-    }
-    .dropzone {
-      display: flex;
-      padding-bottom: 5px;
-      margin: 5px;
-      width: 400px;
+      .droptarget{
+        width: 50%;
+      }
     }
   }
 
@@ -109,6 +115,21 @@
     img {
       border-radius: 10px;
     }
+    .destinationImgAni {
+      animation-name: slideUp;
+      animation-duration: 3s;
+      visibility: visible;
+    }
+    @keyframes slideUp {
+      0% {
+        opacity: 0;
+        transform: translateY(100%);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0%);
+      }
+    }
   }
 
   .content-pick {
@@ -134,5 +155,9 @@
         .button-creator(200px, 45px, @button-bg, @white, 1.8rem);     
       }
     }
+  }
+  .form{
+    display: flex;
+    justify-content: space-evenly;
   }
 }// home

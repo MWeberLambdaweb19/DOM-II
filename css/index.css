@@ -253,16 +253,11 @@ img {
   height: 90%;
   background: white;
 }
-.home .intro .droppable {
+.home .intro .dropzones {
   display: flex;
-  width: 100%;
-  justify-content: space-between;
 }
-.home .intro .dropzone {
-  display: flex;
-  padding-bottom: 5px;
-  margin: 5px;
-  width: 400px;
+.home .intro .dropzones .droptarget {
+  width: 50%;
 }
 .home .content-section {
   margin: 30px 0;
@@ -332,6 +327,21 @@ img {
 .home .content-destination img {
   border-radius: 10px;
 }
+.home .content-destination .destinationImgAni {
+  animation-name: slideUp;
+  animation-duration: 3s;
+  visibility: visible;
+}
+@keyframes slideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
 .home .content-pick {
   padding-top: 30px;
   border-top: 2px dashed #C0C0C0;
@@ -376,4 +386,8 @@ img {
 .home .content-pick .destination .btn:hover {
   background: #FFFFFF;
   color: #17A2B8;
+}
+.home .form {
+  display: flex;
+  justify-content: space-evenly;
 }
